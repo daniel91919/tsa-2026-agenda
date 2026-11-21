@@ -81,7 +81,9 @@ body::after { content: ""; position: fixed; inset: 0; z-index: -1; pointer-event
 .days button { flex: 1; border: 0; background: none; color: var(--muted); font: inherit; font-weight: 600; padding: 7px 4px; border-radius: 999px; cursor: pointer; transition: background .2s, color .2s; }
 .days button[aria-pressed="true"] { background: var(--glass-hi); color: var(--accent); box-shadow: 0 2px 10px var(--shadow), inset 0 1px 0 var(--glass-line); }
 .aff-toggle { display: flex; align-items: center; gap: 5px; font-size: .82rem; color: var(--muted); white-space: nowrap; cursor: pointer; }
-.search { margin-top: 8px; position: relative; }
+.srow { display: flex; gap: 8px; align-items: center; margin-top: 8px; }
+.search { position: relative; flex: 1; min-width: 0; }
+.checkin { flex: none; text-decoration: none; font-size: .85rem; font-weight: 700; color: var(--accent); background: var(--glass-hi); border: 1px solid var(--accent); border-radius: 999px; padding: 9px 12px; white-space: nowrap; }
 .search input { width: 100%; font: inherit; font-size: 16px; padding: 9px 36px 9px 16px; border: 1px solid var(--glass-line); border-radius: 999px; background: var(--glass-hi); color: var(--fg); box-shadow: inset 0 1px 3px var(--glass-edge); }
 .search input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
 .search .clear { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); border: 0; background: none; color: var(--muted); font-size: 1.2rem; width: 28px; height: 28px; cursor: pointer; }
@@ -163,9 +165,12 @@ button:focus-visible, a:focus-visible, input[type=checkbox]:focus-visible { outl
       </div>
       <label class="aff-toggle"><input type="checkbox" id="affs"> 顯示單位</label>
     </div>
-    <div class="search">
-      <input type="text" enterkeyhint="search" id="q" placeholder="搜尋姓名、題目或教室（例：D0309）" autocomplete="off" aria-label="搜尋">
-      <button type="button" class="clear" id="clear" aria-label="清除搜尋" hidden>×</button>
+    <div class="srow">
+      <div class="search">
+        <input type="text" enterkeyhint="search" id="q" placeholder="搜尋姓名、題目或教室" autocomplete="off" aria-label="搜尋">
+        <button type="button" class="clear" id="clear" aria-label="清除搜尋" hidden>×</button>
+      </div>
+      <a class="checkin" href="https://claude.ai/artifact/7AGpkYeVr9e7iY22NE2a2C" target="_blank" rel="noopener" title="給接待人員用，會開新分頁">接待簽到</a>
     </div>
     <nav class="slotnav" id="slotnav" aria-label="跳到時段"></nav>
   </div>
